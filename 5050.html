@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-MJJSNSB");
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <script src="https://js.stripe.com/v3"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kuah App - 50/50 Draw & Bar Tab - Activation</title>
+  <meta name="kuah-app-50-50-draw-bar-tab" content="redirect" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJJSNSB" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+  <h1>Welcome - Kuah App</h1>
+  <h2>50/50 Draw & Bar Tab</h2>
+  <p>A 50/50 Draw is a pool of money where each dollar entered is considered a ticket for the entrant, where the
+    winner receives half of the accumulated prize pool.
+    For example: If you spend $100 in a prize pool of $1000, you have a 1 in 10 chance of winning $500. Kuah App is
+    a
+    Co-operative Not For Profit, so the other half is reinvested back into the community and pool of which it was
+    created.
+  </p>
+  <h1>Please choose an entry ticket below</h1>
+  <img src="/img/kuah5050fivedollarentry.png" id="checkout-button-sku_Gwrf582OxA3fwM" role="link"
+    alt="five-dollar-entry" width="auto" margin="10%" />
+  <img src="/img/kuah5050tendollarentry.png" id="checkout-button-sku_Gwrt77QgZwysKW" role="link" alt="ten-dollar-entry"
+    width="auto" margin="10%" />
+  <img src="/img/kuah5050twentydollarentry.png" id="checkout-button-sku_Gwrum31LZVUcxC" role="link"
+    alt="twenty-dollar-entry" width="auto" margin="10%" />
+  <img src="/img/kuah5050fiftydollarentry.png" id="checkout-button-sku_GwruYzp5a6q4cQ" role="link"
+    alt="fifty-dollar-entry" width="auto" margin="10%" />
+  <img src="/img/kuah5050hundreddollarentry.png" id="checkout-button-sku_GwrvKzK2Jtdlsn" role="link"
+    alt="hundred-dollar-entry" width="auto" margin="10%" />
+
+  <!--$5 stripe script-->
+  <script>
+    (function () {
+      var stripe = Stripe('pk_live_CplOzOmJdlSDDjn5dL28wnub');
+
+      var checkoutButton = document.getElementById('checkout-button-sku_Gwrf582OxA3fwM');
+      checkoutButton.addEventListener('click', function () {
+        // When the customer clicks on the button, redirect
+        // them to Checkout.
+        stripe.redirectToCheckout({
+          items: [{ sku: 'sku_Gwrf582OxA3fwM', quantity: 1 }],
+
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'https://kuah.app/success',
+          cancelUrl: 'https://kuah.app/canceled',
+        })
+          .then(function (result) {
+            if (result.error) {
+              // If `redirectToCheckout` fails due to a browser or network
+              // error, display the localized error message to your customer.
+              var displayError = document.getElementById('error-message');
+              displayError.textContent = result.error.message;
+            }
+          });
+      });
+    })();
+  </script>
+
+  <!--$10 stripe script-->
+  <script>
+    (function () {
+      var stripe = Stripe('pk_live_CplOzOmJdlSDDjn5dL28wnub');
+
+      var checkoutButton = document.getElementById('checkout-button-sku_Gwrt77QgZwysKW');
+      checkoutButton.addEventListener('click', function () {
+        // When the customer clicks on the button, redirect
+        // them to Checkout.
+        stripe.redirectToCheckout({
+          items: [{ sku: 'sku_Gwrt77QgZwysKW', quantity: 1 }],
+
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'https://kuah.app/success',
+          cancelUrl: 'https://kuah.app/canceled',
+        })
+          .then(function (result) {
+            if (result.error) {
+              // If `redirectToCheckout` fails due to a browser or network
+              // error, display the localized error message to your customer.
+              var displayError = document.getElementById('error-message');
+              displayError.textContent = result.error.message;
+            }
+          });
+      });
+    })();
+  </script>
+
+  <!--$20 stripe script-->
+  <script>
+    (function () {
+      var stripe = Stripe('pk_live_CplOzOmJdlSDDjn5dL28wnub');
+
+      var checkoutButton = document.getElementById('checkout-button-sku_Gwrum31LZVUcxC');
+      checkoutButton.addEventListener('click', function () {
+        // When the customer clicks on the button, redirect
+        // them to Checkout.
+        stripe.redirectToCheckout({
+          items: [{ sku: 'sku_Gwrum31LZVUcxC', quantity: 1 }],
+
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'https://kuah.app/success',
+          cancelUrl: 'https://kuah.app/canceled',
+        })
+          .then(function (result) {
+            if (result.error) {
+              // If `redirectToCheckout` fails due to a browser or network
+              // error, display the localized error message to your customer.
+              var displayError = document.getElementById('error-message');
+              displayError.textContent = result.error.message;
+            }
+          });
+      });
+    })();
+  </script>
+
+  <!--$50 stripe script-->
+  <script>
+    (function () {
+      var stripe = Stripe('pk_live_CplOzOmJdlSDDjn5dL28wnub');
+
+      var checkoutButton = document.getElementById('checkout-button-sku_GwruYzp5a6q4cQ');
+      checkoutButton.addEventListener('click', function () {
+        // When the customer clicks on the button, redirect
+        // them to Checkout.
+        stripe.redirectToCheckout({
+          items: [{ sku: 'sku_GwruYzp5a6q4cQ', quantity: 1 }],
+
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'https://kuah.app/success',
+          cancelUrl: 'https://kuah.app/canceled',
+        })
+          .then(function (result) {
+            if (result.error) {
+              // If `redirectToCheckout` fails due to a browser or network
+              // error, display the localized error message to your customer.
+              var displayError = document.getElementById('error-message');
+              displayError.textContent = result.error.message;
+            }
+          });
+      });
+    })();
+  </script>
+
+  <!--$100 stripe script-->
+  <script>
+    (function () {
+      var stripe = Stripe('pk_live_CplOzOmJdlSDDjn5dL28wnub');
+
+      var checkoutButton = document.getElementById('checkout-button-sku_GwrvKzK2Jtdlsn');
+      checkoutButton.addEventListener('click', function () {
+        // When the customer clicks on the button, redirect
+        // them to Checkout.
+        stripe.redirectToCheckout({
+          items: [{ sku: 'sku_GwrvKzK2Jtdlsn', quantity: 1 }],
+
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'https://kuah.app/success',
+          cancelUrl: 'https://kuah.app/canceled',
+        })
+          .then(function (result) {
+            if (result.error) {
+              // If `redirectToCheckout` fails due to a browser or network
+              // error, display the localized error message to your customer.
+              var displayError = document.getElementById('error-message');
+              displayError.textContent = result.error.message;
+            }
+          });
+      });
+    })();
+  </script>
+
+  <script src="" async defer></script>
+</body>
+
+<footer>
+  <!-- <meta http-equiv="refresh" content="5; url = https://" /> -->
+</footer>
+
+</html>
